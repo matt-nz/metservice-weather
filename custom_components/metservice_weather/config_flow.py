@@ -196,7 +196,7 @@ class WeatherFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             return await self._show_mobile_form(errors=errors)
 
         if not errors:
-            response_data = await response.json(content_type=None)
+            await response.json(content_type=None)
             _LOGGER.debug("Mobile API: Response validation successful")
 
             unique_id = str(f"{DOMAIN}-{location_name}")
