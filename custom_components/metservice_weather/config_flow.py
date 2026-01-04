@@ -251,7 +251,7 @@ class WeatherFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     def _async_generate_select_schema_location(self, options: list[dict], field_name: str) -> vol.Schema:
         """Generate a schema with a dynamic SelectSelector based on options provided."""
         _LOGGER.debug("_async_generate_select_schema_location called with field_name: %s, options count: %d", field_name, len(options))
-        self.locations_map = {str(index): opt['label'] for index, opt in enumerate(options)}
+        self.locations_map = {str(index): opt['label']['text'] for index, opt in enumerate(options)}
         _LOGGER.debug("locations_map created with %d entries: %s", len(self.locations_map), self.locations_map)
         select_options = list(self.locations_map.values())
         _LOGGER.debug("Generated %d select options for display: %s", len(select_options), select_options)
