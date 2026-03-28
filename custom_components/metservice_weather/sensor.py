@@ -87,7 +87,7 @@ class WeatherSensor(CoordinatorEntity, SensorEntity):
             manufacturer=MANUFACTURER,
         )
 
-        entity_id_format = description.key + ".{}"
+        entity_id_format = "sensor.{}"
 
         self._attr_unique_id = (
             f"{self.coordinator.location_name},{description.key}".lower()
